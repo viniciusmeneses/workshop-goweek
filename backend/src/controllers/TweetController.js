@@ -1,16 +1,16 @@
-const Tweet = require('../models/Tweet')
+const Tweet = require('../models/Tweet');
 
 module.exports = {
   async index(req, res) {
-    const tweets = await Tweet.find({}).sort('-createdAt')
-    return res.json(tweets)
+    const tweets = await Tweet.find({}).sort('-createdAt');
+    return res.json(tweets);
   },
 
   async store(req, res) {
-    const tweet = await Tweet.create(req.body)
+    const tweet = await Tweet.create(req.body);
 
-    req.io.emit('tweet', tweet)
+    req.io.emit('tweet', tweet);
 
-    return res.json(tweet)
-  }
-}
+    return res.json(tweet);
+  },
+};

@@ -7,11 +7,11 @@
   <title>Teste Socket</title>
 </head>
 <body>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
   <script type="text/javascript">
     const socket = io('http://localhost:3000')
-    
+
     // Evento tweet e evento like
     socket.on('tweet', function(data) {
       console.log(data)
