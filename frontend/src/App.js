@@ -6,6 +6,9 @@ import Timeline from './pages/Timeline'
 
 class App extends Component {
   render() {
+    // BrowserRouter é o router que vai controlar as páginas a serem exibidas de acordo com a URL
+    // Switch vai fazer com que só um componente (Route) por URL/Rota
+    // Propriedade exact faz com que seja necessário a url ser exatamente / para carregar o componente Login
     return (
       <BrowserRouter>
         <Switch>
