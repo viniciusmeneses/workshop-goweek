@@ -8,6 +8,7 @@ import axios from 'axios'
 // No iOS:
 // localhost
 
+// Inicializa o axios com baseURL
 const api = axios.create({
   baseURL: 'http://10.0.3.2:3000'
 })

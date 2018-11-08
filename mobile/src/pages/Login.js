@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 
+// Importa os componentes do react-native que serão usados nesse componente (não usa HTML)
+// View é como se fosse uma div
+// TouchableOpacity é um botão sem estilo
+// KeyboardAvoidingView é um componente para o teclado não tampar a tela quando for aberto nos inputs
+// AsyncStogare é como o localStorage da web só que é assíncrono
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, AsyncStorage } from 'react-native'
 
 import { StackActions, NavigationActions } from 'react-navigation'
 
+// Pacote de icones em forma te vetor
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class Login extends Component {
+  // Sobrescreve a variável navigationOptions onde o react-navigation vai lê-la
+  // header: null retira o header padrão
   static navigationOptions = {
     header: null
   }
@@ -16,8 +24,10 @@ export default class Login extends Component {
   }
 
   async componentDidMount() {
+    // Se o usuário já existir no AsyncStorage
     const username = await AsyncStorage.getItem('@GoTwitter:username')
 
+    //Navega para a timeline
     if (username) {
       this.navigateToTimeline()
     }
@@ -39,6 +49,8 @@ export default class Login extends Component {
     this.navigateToTimeline()
   }
 
+  // Reseta o histórico de páginas e passa uma nova ação
+  // para navegar para a Timeline
   navigateToTimeline = () => {
     const resetAction = StackActions.reset({
       index: 0,
@@ -77,6 +89,8 @@ export default class Login extends Component {
   }
 }
 
+// Os estilos no react-native são parecidos com CSS (em formato camelCase) e os filhos não herdam os estilos dos pais
+// O estilo deve ser criado com StyleShett.create() e acessado através do objeto styles criado
 const styles = StyleSheet.create({
   container: {
     flex: 1,

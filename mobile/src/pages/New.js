@@ -6,6 +6,7 @@ import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Asyn
 import api from '../services/api';
 
 export default class New extends Component {
+  // Retira o header
   static navigationOptions = {
     header: null
   }
@@ -14,6 +15,7 @@ export default class New extends Component {
     newTweet: ''
   }
 
+  // Volta uma página
   goBack = () => {
     this.props.navigation.pop()
   }
